@@ -1,0 +1,47 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+   <bean id = "msgBean" class = "springPack.Message" scope="singleton" init-method="init" destroy-method="destroy">
+   <property name="str" value="Success"></property>  
+      </bean>
+   
+   
+   
+   
+   <bean id= "prodBean" class = "springPack.Product">
+   <!--  <property name="code" value="121"></property> 
+   <property name="name" value="dex"></property>
+   <property name="price" value="20"></property>-->
+   <constructor-arg index="0" value="121"></constructor-arg>
+   <constructor-arg index="1" value="dex"></constructor-arg>
+   <constructor-arg index="2" value="20"></constructor-arg>
+   
+   </bean>
+   <bean id="supBean" class="springPack.Supplier">
+    <!--<property name="sname" value="ABC Traders"></property>
+   <property name="sadd" value="Pune"></property>
+   <property name="mobile" value="395874625"></property>-->
+   <constructor-arg value="ABC Traders"></constructor-arg>
+      <constructor-arg index="1" value="9827681075"></constructor-arg>
+   <constructor-arg value="Pune"></constructor-arg>
+
+   
+   </bean>
+   
+   <bean id="npBean" class="springPack.NewProduct">
+ <!-- <property name="pcode" value="121"></property> 
+   <property name="pname" value="TV"></property>
+   <property name="price" value="60000"></property>
+   <property name="sob" ref="supBean"></property>-->
+     <constructor-arg index="0" value="121"></constructor-arg>
+   <constructor-arg index="1" value="TV"></constructor-arg>
+   <constructor-arg index="2" value="60000"></constructor-arg>
+    <constructor-arg index="3" ref="supBean"></constructor-arg>
+   </bean>
+
+</beans> 
+ 
